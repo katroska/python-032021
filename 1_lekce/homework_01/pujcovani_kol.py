@@ -36,7 +36,10 @@ pujceni_pivot = pd.pivot_table(pujceni, index="weather_code", columns="year", va
 # 26 = snowfall
 # 94 = Freezing Fog
 
-pujceni_pivot_df = pd.DataFrame(pujceni_pivot, index=None).reset_index(drop = False)
 print(pujceni_pivot)
 
+#NAVÍC: pro zrušení prázdného řádku a sloupce s rokem je potřeba převést agregaci na obyčejný dataframe a vymazat
+#sloupec "year" (je na pozici 1)
+
+pujceni_pivot_df = pd.DataFrame(pujceni_pivot).reset_index().rename_axis(None, axis=1)
 print(pujceni_pivot_df)
