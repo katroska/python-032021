@@ -27,4 +27,5 @@ vehicle_theft = vehicle_theft[vehicle_theft["SECONDARY_DESCRIPTION"].str.contain
 #print(vehicle_theft)
 vehicle_theft["Month"] = pd.to_datetime(vehicle_theft["DATE_OF_OCCURRENCE"]).dt.strftime("%Y/%m")
 vehicle_theft_grouped = vehicle_theft.groupby("Month").size()
-print(vehicle_theft_grouped)
+print(vehicle_theft_grouped.idxmax(), vehicle_theft_grouped.max())
+# aby byl vidět i měsíc, použiji metodu idxmax, kt. zobrazí index u max hodnoty
