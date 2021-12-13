@@ -57,16 +57,16 @@ for k in ks:
     y_pred = clf.predict(X_test)
     f1_scores.append(f1_score(y_test, y_pred))
 
-# plt.plot(ks, f1_scores)
-# plt.show()
+plt.plot(ks, f1_scores)
+plt.show()
 
 # 7. Zaverecna predikce
-clf = KNeighborsClassifier(n_neighbors=13)
+clf = KNeighborsClassifier(n_neighbors=15)
 clf.fit(X_train, y_train)
 y_pred = clf.predict(X_test)
 print(f1_score(y_test, y_pred))
 
-# metrika f1_score dosáhne alespoň 85 % při hodnotách k náležící do intervalu <1, 12> a <14,17> a 21 a 25
+# metrika f1_score dosáhne alespoň 85 % při hodnotách k náležící do intervalu <1, 12> a <14,17> a 21 a 25 (viz graf).
 # Pro některé hodnoty k je možné předpovědět typ kosatce na základě těchto dat tak, aby metrika f1_score
 # dosáhla alespoň 85 %, ale celkově to neplatí.
-
+# Nejlepšího výsledku (88 %) je dosaženo při n_neighbors = 15 (případně 17).
